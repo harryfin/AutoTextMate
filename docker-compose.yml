@@ -1,0 +1,11 @@
+version: '3'
+services:
+  paste_text_app:
+    image: paste-text:latest  # Der Name des Docker-Images, das du gebaut hast
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}  # Übernimm die DISPLAY-Variable vom Host
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Mount für den X11-Socket
+    stdin_open: true
+    tty: true
