@@ -5,8 +5,6 @@
 - Automatisches Ersetzen von Textkürzeln: Ersetzt benutzerdefinierte Kürzel (z.B. #daily, #todo) automatisch mit den entsprechenden Textbausteinen.
 - Echtzeitüberwachung der Tastatur: Überwacht die Tastatureingaben und ersetzt Kürzel sofort, nachdem ein Leerzeichen eingegeben wird.
 - Datumseinbindung: Automatische Einbindung des aktuellen Datums bei bestimmten Textvorlagen, wie z.B. täglichen Notizen.
-- Verwendung der Zwischenablage: Schnelles und fehlerfreies Einfügen von Text durch Kopieren in die Zwischenablage und anschließendes Einfügen mit der Tastenkombination STRG+V.
-
 
 # Installation
 
