@@ -6,29 +6,69 @@
 - Echtzeitüberwachung der Tastatur: Überwacht die Tastatureingaben und ersetzt Kürzel sofort, nachdem ein Leerzeichen eingegeben wird.
 - Datumseinbindung: Automatische Einbindung des aktuellen Datums bei bestimmten Textvorlagen, wie z.B. täglichen Notizen.
 - Verwendung der Zwischenablage: Schnelles und fehlerfreies Einfügen von Text durch Kopieren in die Zwischenablage und anschließendes Einfügen mit der Tastenkombination STRG+V.
-# Installation
-1. Abhängigkeiten installieren:
 
-Stelle sicher, dass die folgenden Python-Bibliotheken installiert sind:
+
+# Installation
+
+## 1. Virtuelles Environment erstellen (Windows & Linux)
+Es wird empfohlen, ein isoliertes virtuelles Python-Environment zu verwenden, um Konflikte mit anderen Projekten zu vermeiden.
+
+### Windows:
+1. Öffne ein Terminal (CMD, PowerShell oder Git Bash) im Projektordner.
+2. Erstelle ein virtuelles Environment:
+   ```bash
+   python -m venv venv
+   ```
+3. Aktiviere das Environment:
+   ```bash
+   venv\Scripts\activate
+   ```
+
+### Linux/macOS:
+1. Öffne ein Terminal im Projektordner.
+2. Erstelle ein virtuelles Environment:
+   ```bash
+   python3 -m venv venv
+   ```
+3. Aktiviere das Environment:
+   ```bash
+   source venv/bin/activate
+   ```
+
+## 2. Abhängigkeiten installieren:
+Stelle sicher, dass die erforderlichen Python-Bibliotheken installiert sind. Dies wird nun innerhalb des virtuellen Environments ausgeführt:
 
 ```bash
-pip install pyautogui keyboard pyperclip
+pip install -r requirements.txt
 ```
-2. Code herunterladen:
 
+## 3. Code herunterladen:
 Lade den Quellcode herunter oder klone das Repository:
 
 ```bash
 git clone https://github.com/harryfin/AutoTextMate.git
 ```
 
-2. Programm ausführen:
-
-Führe das Programm aus, um die Überwachung der Tastatur zu starten:
+## 4. Programm ausführen:
+Führe das Programm innerhalb des aktivierten virtuellen Environments aus, um die Überwachung der Tastatur zu starten:
 
 ```bash
 python auto_text_mate.py
 ```
+
+## 5. Deaktivierung des virtuellen Environments:
+Nach der Ausführung kannst du das virtuelle Environment mit folgendem Befehl deaktivieren:
+
+### Windows:
+```bash
+venv\Scripts\deactivate
+```
+
+### Linux/macOS:
+```bash
+deactivate
+```
+
 
 # Nutzung
 1. Definiere deine Textbausteine:
@@ -39,7 +79,6 @@ Beispiel:
 ```python
 texts = {
     "#daily": "...",
-    "#todo": "...",
     "#meeting": "...",
 }
 
@@ -54,12 +93,12 @@ Wenn du das Kürzel `#daily` eingibst, wird es durch Folgendes ersetzt (mit dem 
 # Daily Notes - 05-09-2024
 
 ## Tagesziele
-- [ ]
-- [ ] 
-- [ ]
+- [ ] Tagziel 1
+- [ ] Tagziel 2
+- [ ] Tagziel 3
 
 ## Aufgaben
-- [ ] 
-- [ ]
-- [ ]
+- [ ] Aufgabe 1
+- [ ] Aufgabe 2
+- [ ] Aufgabe 3
 ````
