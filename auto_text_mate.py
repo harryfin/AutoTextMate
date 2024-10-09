@@ -25,6 +25,10 @@ Meeting_Notes = """
 
 Meeting Details
 
+## Teilnehmer
+- Name 1
+Name 2
+
 ## Agenda
 1. Punkt 1
 Punkt 2

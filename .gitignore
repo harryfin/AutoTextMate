@@ -49,3 +49,4 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+/start_auto_text_mate.bat

@@ -100,3 +100,17 @@ Wenn du das Kürzel `#daily` eingibst, wird es durch Folgendes ersetzt (mit dem 
 - [ ] Aufgabe 2
 - [ ] Aufgabe 3
 ````
+
+
+# Autostart mit Batch-Datei mit virtuellem Environment
+## Windows
+Du kannst auch eine Batch-Datei erstellen, die zuerst das virtuelle Environment aktiviert und dann das Skript ausführt.
+
+Erstelle eine .bat-Datei von start_auto_text_mate.bat.example, die folgendes enthält:
+
+````batch
+@echo off
+call C:\path\to\venv\Scripts\activate
+python C:\path\to\your_script.py
+````
+Lege diese Batch-Datei in den Autostart-Ordner (Win + R → shell:startup).
