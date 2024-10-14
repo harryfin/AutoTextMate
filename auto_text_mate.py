@@ -21,7 +21,7 @@ Aufgabe 3
 
 Meeting_Notes = """
 
-## Meetingtype - {}
+# Meetingtype - {}
 
 Meeting Details
 
@@ -45,6 +45,10 @@ Information 2
 - Information 1
 Information 2
 
+## Aufgaben
+- [ ] Aufgabe 1
+Aufgabe 2
+Aufgabe 3
 
 ## Zusammenfassung
 **Hauptentscheidungen**:
