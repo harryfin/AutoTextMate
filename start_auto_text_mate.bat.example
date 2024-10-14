@@ -1,3 +1,2 @@
 @echo off
-call C:\path\to\venv\Scripts\activate
-python C:\path\to\your_script.py
+C:\path\to\venv\Scripts\python.exe C:\path\to\your_script.py
