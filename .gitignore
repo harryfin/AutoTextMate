@@ -50,3 +50,4 @@ wheels/
 .installed.cfg
 *.egg
 /start_auto_text_mate.bat
+/start_auto_text_mate.vbs

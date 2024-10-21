@@ -110,7 +110,20 @@ Erstelle eine .bat-Datei von start_auto_text_mate.bat.example, die folgendes ent
 
 ````batch
 @echo off
-call C:\path\to\venv\Scripts\activate
-python C:\path\to\your_script.py
+C:\path\to\venv\Scripts\python.exe C:\path\to\your_script.py
 ````
-Lege diese Batch-Datei in den Autostart-Ordner (Win + R → shell:startup).
+
+oder eine .vbs-Datei von start_auto_text_mate.vbs.example, die folgendes enthält:
+
+````vbs
+Set WshShell = CreateObject("WScript.Shell")
+WshShell.Run "C:\path\to\venv\Scripts\pythonw.exe C:\path\to\your_script.py", 0
+Set WshShell = Nothing
+````
+
+Parameter:
+- 0: Das Fenster wird nicht angezeigt.
+
+Lege diese Datei in den Autostart-Ordner (Win + R → shell:startup).
+
+
