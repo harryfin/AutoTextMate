@@ -13,6 +13,7 @@ Daily_Notes = """
 Tagziel 2
 Tagziel 3
 
+
 ## Aufgaben
 - [ ] Aufgabe 1
 Aufgabe 2
@@ -28,6 +29,7 @@ Meeting Details
 ## Teilnehmer
 - Name 1
 Name 2
+
 
 ## Agenda
 1. Punkt 1
@@ -45,10 +47,12 @@ Information 2
 - Information 1
 Information 2
 
+
 ## Aufgaben
 - [ ] Aufgabe 1
 Aufgabe 2
 Aufgabe 3
+
 
 ## Zusammenfassung
 **Hauptentscheidungen**:
@@ -68,13 +72,6 @@ Schritt 2: [Verantwortlich: Name, Fälligkeitsdatum]
 Vorschlag 2
 """
 
-# Definition der Ersetzungen
-replacements = {
-    "#daily": Daily_Notes.format(time.strftime("%d-%m-%Y")),
-    "#meeting": Meeting_Notes.format(time.strftime("%d-%m-%Y")),
-}
-
-max_trigger_length = max(len(trigger_word) for trigger_word in replacements.keys())
 
 
 def on_key_event(e):
@@ -91,6 +88,14 @@ def on_key_event(e):
         else:
             # Andere Tasten ignorieren
             pass
+
+        # Definition der Ersetzungen
+        replacements = {
+            "#daily": Daily_Notes.format(time.strftime("%d-%m-%Y")),
+            "#meeting": Meeting_Notes.format(time.strftime("%d-%m-%Y")),
+        }
+
+        max_trigger_length = max(len(trigger_word) for trigger_word in replacements.keys())
 
         # Puffer auf maximale Schlüsselwortlänge beschränken
         typed_chars = typed_chars[-max_trigger_length:]
