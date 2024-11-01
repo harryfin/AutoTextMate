@@ -1,0 +1,12 @@
+# Daily Notes - {}
+
+## Tagesziele
+- [ ] Tagziel 1
+Tagziel 2
+Tagziel 3
+
+
+## Aufgaben
+- [ ] Aufgabe 1
+Aufgabe 2
+Aufgabe 3

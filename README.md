@@ -69,18 +69,12 @@ deactivate
 
 
 # Nutzung
-1. Definiere deine Textbausteine:
-Du kannst im Dictionary texts Kürzel wie #daily, #todo oder #meeting definieren, die dann durch den zugehörigen Text ersetzt werden.
 
-Beispiel:
+1. Anlegen von Textbausteinen:
+   - Legen Sie alle Textbausteine in dem Verzeichnis `notes/` ab.
+   - Benennen Sie die Dateien nach dem Muster `triggerword_notes.txt`, z.B. `daily_notes.txt`, `meeting_notes.txt`.
 
-```python
-texts = {
-    "#daily": "...",
-    "#meeting": "...",
-}
 
-```
 2. Textkürzel verwenden:
 Sobald das Programm läuft, kannst du die definierten Kürzel (z.B. #daily) in jedem beliebigen Textfeld eingeben. Nach der Eingabe des Kürzels und Drücken der Leertaste wird das Kürzel automatisch durch den zugehörigen Text ersetzt.
 
