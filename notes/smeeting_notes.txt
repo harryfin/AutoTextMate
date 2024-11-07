@@ -1,0 +1,25 @@
+# Meetingtype - {}
+
+Meeting Details
+
+## Teilnehmer
+- Name 1
+Name 2
+
+
+## Agenda
+1. Punkt 1
+Punkt 2
+Punkt 3
+
+
+## Protokoll
+### Punkt 1
+- Information 1
+Information 2
+
+
+### Punkt 2
+- Information 1
+Information 2
+
