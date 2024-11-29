@@ -1,0 +1,40 @@
+# Wöchentliche Planung - Woche <KW>
+
+## Quadrant 1: Wichtig und dringend (Sofort erledigen)
+- [ ] Prio-Aufgabe 1
+
+
+## Quadrant 2: Wichtig, aber nicht dringend (Zeit einplanen)
+> *Pareto-Aufgaben sind markiert mit ⭐️*
+
+### Montag
+- [ ] ⭐️ Pareto-Aufgabe 1
+Aufgabe 1
+
+### Dienstag
+- [ ] ⭐️ Pareto-Aufgabe 2
+Aufgabe 2
+
+### Mittwoch
+- [ ] ⭐️ Pareto-Aufgabe 3
+Aufgabe 3
+
+### Donnerstag
+- [ ] ⭐️ Pareto-Aufgabe 4
+Aufgabe 4
+
+### Freitag
+- [ ] ⭐️ Pareto-Aufgabe 5
+Aufgabe 5
+
+
+## Quadrant 3: Dringend, aber nicht wichtig (Delegieren oder minimieren)
+- [ ] Routine-Meetings - Prüfen, ob Teilnahme notwendig ist.
+Kollegenanfragen beantworten - Delegierbare Aufgaben an Teammitglieder.
+Dokumentationen für Standardprozesse - Kann im Team verteilt werden.
+
+## Quadrant 4: Weder wichtig noch dringend (Vermeiden oder eliminieren)
+- [ ] Unnötige Slack-/E-Mail-Überprüfungen - Minimieren, auf feste Zeiten beschränken.
+Datenexperimente ohne klare Zielsetzung - Reduzieren, da kein klarer Mehrwert.
+ Social Media für „Forschung“ nutzen - Ablenkend, reduziert Konzentration.
+

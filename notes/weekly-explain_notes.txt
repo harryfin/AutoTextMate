@@ -1,0 +1,11 @@
+**Zusätzliche Notizen zur Eisenhower-Matrix**
+Tägliche Time-Blocks für Quadrant-2-Aufgaben reservieren, um die wichtigen, aber nicht dringenden Projekte kontinuierlich zu bearbeiten.
+
+- **Quadrant 1: Wichtig und dringend (Sofort erledigen):** Diese Aufgaben sind unvorhersehbar und tauchen kurzfristig auf. Es ist wichtig, bei Bedarf schnell auf sie zu reagieren. Beispiele:
+	- Bugfix für Produktionsfehler - Kritischer Fehler, sofort beheben.
+	Kundenbericht abschließen - Deadline in 2 Tagen, hoher Priorität.
+	Datenbereinigung für dringendes Projekt - Datenqualität sicherstellen, da Kunde wartet.
+
+- **Quadrant 2: Wichtig, aber nicht dringend (Zeit einplanen):** Regelmäßige Planung und Zeitblöcke für Quadrant-2-Aufgaben einplanen, um langfristig produktiv zu bleiben.
+
+- **Quadrant 3: Dringend, aber nicht wichtig (Delegieren oder minimieren) und Quadrant 4: Weder wichtig noch dringend (Vermeiden oder eliminieren):** Aufgaben hier so weit wie möglich reduzieren oder delegieren, um den Fokus auf die wichtigen Aufgaben zu halten.
