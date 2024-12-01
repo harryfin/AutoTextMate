@@ -1,4 +1,4 @@
-# Meetingtype - {}
+# Meetingtype - {date}
 
 Meeting Details
 

@@ -1,4 +1,4 @@
-# Wöchentliche Planung - Woche <KW>
+# Wöchentliche Planung - Woche <{kw}>
 
 ## Quadrant 1: Wichtig und dringend (Sofort erledigen)
 - [ ] Prio-Aufgabe 1
@@ -32,6 +32,7 @@ Aufgabe 5
 - [ ] Routine-Meetings - Prüfen, ob Teilnahme notwendig ist.
 Kollegenanfragen beantworten - Delegierbare Aufgaben an Teammitglieder.
 Dokumentationen für Standardprozesse - Kann im Team verteilt werden.
+
 
 ## Quadrant 4: Weder wichtig noch dringend (Vermeiden oder eliminieren)
 - [ ] Unnötige Slack-/E-Mail-Überprüfungen - Minimieren, auf feste Zeiten beschränken.

@@ -1,4 +1,4 @@
-# Daily Notes - {}
+# Daily Notes - {date}
 
 ## Tagesziele
 - [ ] Tagziel 1
