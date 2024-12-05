@@ -121,3 +121,24 @@ Parameter:
 Lege diese Datei in den Autostart-Ordner (Win + R → shell:startup).
 
 
+## Ausführung des Skriptes mit Docker
+
+### Schritte
+
+1. **Docker-Image bauen**  
+   ```bash
+   docker build -t auto-text-mate .
+   ```
+
+2. **Skript ohne Internet ausführen**  
+   ```bash
+   docker run --rm --network none auto-text-mate
+   ```
+
+### Vorteile
+- **Sicherheit**: Kein Internetzugriff.
+- **Reproduzierbarkeit**: Einheitliche Umgebung.
+
+#conda 
+
+#conda 
