@@ -75,7 +75,7 @@ def check_and_replace():
     for trigger_word, template_text in replacements.items():
         if typed_chars.strip().endswith(trigger_word):
             # Number of characters to delete
-            num_backspaces = len(trigger_word + 1)  # +1 for the hashtag
+            num_backspaces = len(trigger_word) +1  # +1 for the hashtag
             # Delete the trigger word
             for _ in range(num_backspaces):
                 keyboard.press_and_release('backspace')
@@ -94,3 +94,4 @@ if __name__ == "__main__":
 
     # Script runs continuously
     keyboard.wait()
+

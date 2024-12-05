@@ -1,1 +1,1 @@
-{date}
+conda create -n env_name --channel=conda-forge --override-channels python=3.11
