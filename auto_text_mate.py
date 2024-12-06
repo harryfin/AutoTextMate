@@ -1,3 +1,4 @@
+import tkinter as tk
 import datetime
 from pathlib import Path
 
@@ -38,6 +39,32 @@ def get_template_date() -> dict:
     return {"date": date, "kw": kw}
 
 
+def show_all_notes(notes):
+    """
+    Opens a temporary window to display all available notes.
+    """
+    root = tk.Tk()
+    root.title("All Notes")
+
+    # Add a scrollbar
+    scrollbar = tk.Scrollbar(root)
+    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+    # Add a Text widget to display notes
+    text = tk.Text(root, wrap=tk.WORD, yscrollcommand=scrollbar.set)
+    text.pack(expand=True, fill=tk.BOTH)
+
+    # Populate the Text widget with all notes
+    for trigger_word, note_content in notes.items():
+        text.insert(tk.END, f"{trigger_word}:\n{note_content}\n{'-'*40}\n")
+
+    # Configure the scrollbar
+    scrollbar.config(command=text.yview)
+
+    # Run the Tkinter event loop
+    root.mainloop()
+
+
 # Directory of text snippets relative to the script directory
 script_directory = Path(__file__).parent
 notes_directory = script_directory / 'notes'
@@ -71,11 +98,25 @@ def on_key_event(e):
 
 def check_and_replace():
     global typed_chars
-    # Check for all trigger words
+    # Check for the special trigger "#all_notes"
+    if typed_chars.strip().endswith("#all_notes"):
+        # Delete the trigger word
+        num_backspaces = len("#all_notes") + 1  # +1 for the hashtag
+        for _ in range(num_backspaces):
+            keyboard.press_and_release('backspace')
+
+        # Show all notes in a temporary window
+        show_all_notes(replacements)
+
+        # Clear the buffer
+        typed_chars = ""
+        return
+
+    # Check for other trigger words
     for trigger_word, template_text in replacements.items():
         if typed_chars.strip().endswith(trigger_word):
             # Number of characters to delete
-            num_backspaces = len(trigger_word) +1  # +1 for the hashtag
+            num_backspaces = len(trigger_word) + 1  # +1 for the hashtag
             # Delete the trigger word
             for _ in range(num_backspaces):
                 keyboard.press_and_release('backspace')
