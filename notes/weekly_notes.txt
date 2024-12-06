@@ -5,7 +5,7 @@
 
 
 ## Quadrant 2: Wichtig, aber nicht dringend (Zeit einplanen)
-> *Pareto-Aufgaben sind markiert mit ⭐️*
+*Pareto-Aufgaben sind markiert mit ⭐️*
 
 ### Montag
 - [ ] ⭐️ Pareto-Aufgabe 1
