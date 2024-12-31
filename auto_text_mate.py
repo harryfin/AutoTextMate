@@ -1,12 +1,15 @@
 import datetime
 from pathlib import Path
-
 import keyboard
+import tkinter as tk
+from tkinter import messagebox
+
+SHOW_NOTES_TRIGGER = "#show-notes"
+
 
 typed_chars = ''  # Buffer for the last typed characters
 
 
-# Function to read a text file
 def read_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
@@ -21,7 +24,6 @@ def load_notes(directory):
             trigger_word = f"#{file_path.stem.split('_')[0]}"
             notes[trigger_word] = read_file(file_path)
     return notes
-
 
 def get_template_date() -> dict:
     """
@@ -68,6 +70,17 @@ def on_key_event(e):
         # Limit the buffer to the maximum trigger word length plus one for the space or enter
         typed_chars = typed_chars[-(max_trigger_length + 1):]
 
+def show_notes_window(note_names):
+    """
+    Displays a window with the list of note names.
+    """
+    root = tk.Tk()
+    root.withdraw()  # Hide the root window
+    note_list = "\n".join(note_names)
+    messagebox.showinfo("Notes", note_list)
+    root.after(0, root.destroy)  # Schedule the destruction of the root window
+    root.mainloop()
+
 
 def check_and_replace():
     global typed_chars
@@ -87,6 +100,11 @@ def check_and_replace():
             typed_chars = ""
             break  # Stop after the first match
 
+    # Check for the #show_note trigger
+    if typed_chars.strip().endswith(SHOW_NOTES_TRIGGER):
+        note_names = [trigger for trigger in replacements.keys()]
+        show_notes_window(note_names)
+        typed_chars = ""
 
 if __name__ == "__main__":
     # Register the hook
