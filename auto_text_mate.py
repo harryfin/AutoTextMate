@@ -74,8 +74,7 @@ def setup_replacements() -> Tuple[Dict[str, str], int]:
         notes_directory = script_directory / 'notes'
         replacements = load_notes(str(notes_directory))
         max_trigger_length = max(
-            (len(trigger_word) for trigger_word in replacements.keys()),
-            default=max(len(SHOW_NOTES_TRIGGER), len(EXIT_TRIGGER))
+            [len(trigger_word) for trigger_word in replacements.keys()] + [len(SHOW_NOTES_TRIGGER), len(EXIT_TRIGGER)]
         )
         return replacements, max_trigger_length
     except Exception as ex:

@@ -52,3 +52,4 @@ wheels/
 /start_auto_text_mate.bat
 /start_auto_text_mate.vbs
 /note_replacer.log
+/tests/note_replacer.log
