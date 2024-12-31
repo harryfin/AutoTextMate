@@ -124,10 +124,10 @@ def show_notes_window(note_names: list) -> None:
         root.withdraw()  # Hide the root window
         note_list = "\n".join(note_names)
         messagebox.showinfo("Notes", note_list)
-        root.after(0, root.destroy)  # Schedule the destruction of the root window
-        root.mainloop()
+        root.destroy()  # Destroy the root window after showing the message box
     except Exception as ex:
         logging.error(f"Error displaying notes window: {ex}")
+
 
 def check_and_replace(typed_chars: str, replacements: Dict[str, str]) -> str:
     """Checks for trigger words and replaces them with the corresponding text.
