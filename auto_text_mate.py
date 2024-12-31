@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import messagebox
 import logging
 import sys
+from typing import Dict, Tuple
 
 SHOW_NOTES_TRIGGER = "#show-notes"
 EXIT_TRIGGER = "#exit"
@@ -16,7 +17,15 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-def read_file(file_path):
+def read_file(file_path: str) -> str:
+    """Reads the content of a file.
+
+    Args:
+        file_path (str): The path to the file.
+
+    Returns:
+        str: The content of the file.
+    """
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
@@ -24,7 +33,15 @@ def read_file(file_path):
         logging.error(f"Error reading file {file_path}: {ex}")
         return ""
 
-def load_notes(directory):
+def load_notes(directory: str) -> Dict[str, str]:
+    """Loads notes from a directory.
+
+    Args:
+        directory (str): The path to the directory containing notes.
+
+    Returns:
+        Dict[str, str]: A dictionary mapping trigger words to note contents.
+    """
     notes = {}
     directory_path = Path(directory)
     if not directory_path.exists():
@@ -36,16 +53,26 @@ def load_notes(directory):
         notes[trigger_word] = read_file(file_path)
     return notes
 
-def get_template_date() -> dict:
+def get_template_date() -> Dict[str, str]:
+    """Gets the current date and week number.
+
+    Returns:
+        Dict[str, str]: A dictionary containing the current date and week number.
+    """
     date = datetime.datetime.now().strftime("%d-%m-%Y")
     kw = datetime.datetime.now().isocalendar()[1]
-    return {"date": date, "kw": kw}
+    return {"date": date, "kw": str(kw)}
 
-def setup_replacements():
+def setup_replacements() -> Tuple[Dict[str, str], int]:
+    """Sets up the replacements dictionary and calculates the maximum trigger length.
+
+    Returns:
+        Tuple[Dict[str, str], int]: A tuple containing the replacements dictionary and the maximum trigger length.
+    """
     try:
         script_directory = Path(__file__).parent
         notes_directory = script_directory / 'notes'
-        replacements = load_notes(notes_directory)
+        replacements = load_notes(str(notes_directory))
         max_trigger_length = max(
             (len(trigger_word) for trigger_word in replacements.keys()),
             default=max(len(SHOW_NOTES_TRIGGER), len(EXIT_TRIGGER))
@@ -55,7 +82,18 @@ def setup_replacements():
         logging.error(f"Error initializing script: {ex}")
         return {}, 0
 
-def on_key_event(event, typed_chars, replacements, max_trigger_length):
+def on_key_event(event: keyboard.KeyboardEvent, typed_chars: str, replacements: Dict[str, str], max_trigger_length: int) -> str:
+    """Handles key events and updates the typed characters.
+
+    Args:
+        event (keyboard.KeyboardEvent): The keyboard event.
+        typed_chars (str): The current typed characters.
+        replacements (Dict[str, str]): The replacements dictionary.
+        max_trigger_length (int): The maximum trigger length.
+
+    Returns:
+        str: The updated typed characters.
+    """
     try:
         if event.event_type == 'down':
             if event.name == 'backspace':
@@ -76,7 +114,12 @@ def on_key_event(event, typed_chars, replacements, max_trigger_length):
         logging.error(f"Error processing key event: {ex}")
     return typed_chars
 
-def show_notes_window(note_names):
+def show_notes_window(note_names: list) -> None:
+    """Displays a window with the list of note names.
+
+    Args:
+        note_names (list): The list of note names.
+    """
     try:
         root = tk.Tk()
         root.withdraw()  # Hide the root window
@@ -87,7 +130,16 @@ def show_notes_window(note_names):
     except Exception as ex:
         logging.error(f"Error displaying notes window: {ex}")
 
-def check_and_replace(typed_chars, replacements):
+def check_and_replace(typed_chars: str, replacements: Dict[str, str]) -> str:
+    """Checks for trigger words and replaces them with the corresponding text.
+
+    Args:
+        typed_chars (str): The current typed characters.
+        replacements (Dict[str, str]): The replacements dictionary.
+
+    Returns:
+        str: The updated typed characters.
+    """
     try:
         for trigger_word, template_text in replacements.items():
             if typed_chars.strip().endswith(trigger_word):
@@ -118,11 +170,12 @@ def check_and_replace(typed_chars, replacements):
         logging.error(f"Error in check_and_replace: {ex}")
     return typed_chars
 
-def main():
+def main() -> None:
+    """Main function to start the script."""
     replacements, max_trigger_length = setup_replacements()
     typed_chars = ""
 
-    def key_event_handler(event):
+    def key_event_handler(event: keyboard.KeyboardEvent) -> None:
         nonlocal typed_chars
         typed_chars = on_key_event(event, typed_chars, replacements, max_trigger_length)
 

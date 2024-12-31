@@ -51,3 +51,4 @@ wheels/
 *.egg
 /start_auto_text_mate.bat
 /start_auto_text_mate.vbs
+/note_replacer.log
