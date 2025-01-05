@@ -38,4 +38,3 @@ Dokumentationen für Standardprozesse - Kann im Team verteilt werden.
 - [ ] Unnötige Slack-/E-Mail-Überprüfungen - Minimieren, auf feste Zeiten beschränken.
 Datenexperimente ohne klare Zielsetzung - Reduzieren, da kein klarer Mehrwert.
  Social Media für „Forschung“ nutzen - Ablenkend, reduziert Konzentration.
-

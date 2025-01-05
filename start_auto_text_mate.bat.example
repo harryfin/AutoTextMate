@@ -1,4 +1,2 @@
 @echo off
 C:\path\to\venv\Scripts\python.exe C:\path\to\autoCopy\auto_text_mate.py
-
-#conda

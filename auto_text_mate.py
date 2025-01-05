@@ -6,13 +6,16 @@ from tkinter import messagebox
 import logging
 import sys
 from typing import Dict, Tuple
+import pathlib
 
 SHOW_NOTES_TRIGGER = "#show-notes"
 EXIT_TRIGGER = "#exit"
 
+root_path = pathlib.Path(__file__).parent.absolute()
+
 # Configure logging
 logging.basicConfig(
-    filename='note_replacer.log',
+    filename=root_path / 'note_replacer.log',
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
