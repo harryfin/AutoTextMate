@@ -1,0 +1,48 @@
+# Meetingtype - {date}
+
+Meeting Details
+
+## Teilnehmer
+- Name 1
+Name 2
+
+
+## Agenda
+1. Punkt 1
+Punkt 2
+Punkt 3
+
+
+## Protokoll
+### Punkt 1
+- Information 1
+Information 2
+
+
+### Punkt 2
+- Information 1
+Information 2
+
+
+## Aufgaben
+- [ ] Aufgabe 1
+Aufgabe 2
+Aufgabe 3
+
+
+## Zusammenfassung
+**Hauptentscheidungen**:
+- Entscheidung 1
+Entscheidung 2
+
+
+**Nächste Schritte**:
+- Schritt 1: [Verantwortlich: Name, Fälligkeitsdatum]
+Schritt 2: [Verantwortlich: Name, Fälligkeitsdatum]
+
+
+## Nächstes Meeting
+**Datum/Uhrzeit**: [Datum und Uhrzeit des nächsten Meetings]
+**Agenda-Vorschläge**:
+- Vorschlag 1
+Vorschlag 2

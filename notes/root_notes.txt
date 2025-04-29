@@ -1,0 +1,3 @@
+root = pathlib.Path(__file__).parent.absolute()  # Path to directory one level up
+root_directory_name = ...
+assert str(root).endswith(f"{root_directory_name}"), "Root path does not end with the expected directory name."

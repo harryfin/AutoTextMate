@@ -1,0 +1,21 @@
+# Wöchentliche Planung - Woche <{kw}>
+
+### Montag
+- [ ] ⭐️ Pareto-Aufgabe 1
+Aufgabe 1
+
+### Dienstag
+- [ ] ⭐️ Pareto-Aufgabe 2
+Aufgabe 2
+
+### Mittwoch
+- [ ] ⭐️ Pareto-Aufgabe 3
+Aufgabe 3
+
+### Donnerstag
+- [ ] ⭐️ Pareto-Aufgabe 4
+Aufgabe 4
+
+### Freitag
+- [ ] ⭐️ Pareto-Aufgabe 5
+Aufgabe 5
