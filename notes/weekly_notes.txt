@@ -1,4 +1,4 @@
-# Wöchentliche Planung - Woche <{kw}>
+# Wöchentliche Planung - Woche {kw}
 
 ### Montag
 - [ ] ⭐️ Pareto-Aufgabe 1

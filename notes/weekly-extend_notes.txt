@@ -1,4 +1,4 @@
-# Wöchentliche Planung - Woche <{kw}>
+# Wöchentliche Planung - Woche {kw}
 
 ## Quadrant 1: Wichtig und dringend (Sofort erledigen)
 - [ ] Prio-Aufgabe 1
