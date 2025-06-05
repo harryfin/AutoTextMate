@@ -7,23 +7,23 @@
 ## Quadrant 2: Wichtig, aber nicht dringend (Zeit einplanen)
 *Pareto-Aufgaben sind markiert mit ⭐️*
 
-### Montag
+### Montag - {monday}
 - [ ] ⭐️ Pareto-Aufgabe 1
 Aufgabe 1
 
-### Dienstag
+### Dienstag - {tuesday}
 - [ ] ⭐️ Pareto-Aufgabe 2
 Aufgabe 2
 
-### Mittwoch
+### Mittwoch - {wednesday}
 - [ ] ⭐️ Pareto-Aufgabe 3
 Aufgabe 3
 
-### Donnerstag
+### Donnerstag - {thursday}
 - [ ] ⭐️ Pareto-Aufgabe 4
 Aufgabe 4
 
-### Freitag
+### Freitag - {friday}
 - [ ] ⭐️ Pareto-Aufgabe 5
 Aufgabe 5
 
