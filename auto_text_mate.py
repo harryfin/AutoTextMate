@@ -9,8 +9,8 @@ from typing import Dict, Tuple
 import pathlib
 import re
 
-SHOW_NOTES_TRIGGER = "#show-notes"
-EXIT_TRIGGER = "#exit"
+SHOW_NOTES_TRIGGER = "§§show-notes"
+EXIT_TRIGGER = "§§exit"
 
 root_path = pathlib.Path(__file__).parent.absolute()
 
@@ -52,8 +52,8 @@ def load_notes(directory: str) -> Dict[str, str]:
         logging.warning(f"Notes directory {directory} does not exist.")
         return notes
 
-    for file_path in directory_path.glob('*_notes.txt'):
-        trigger_word = f"#{file_path.stem.split('_')[0]}"
+    for file_path in directory_path.glob('*.txt'):
+        trigger_word = f"§§{file_path.stem}"
         notes[trigger_word] = read_file(file_path)
     return notes
 

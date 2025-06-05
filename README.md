@@ -2,7 +2,7 @@
 **AutoTextMate** ist ein einfaches Python-Programm, das es ermöglicht, vordefinierte Textbausteine durch Tastatureingaben automatisch zu ersetzen. Es eignet sich ideal für Nutzer, die häufig bestimmte Texteingaben wiederholen und Zeit sparen möchten, indem sie Kürzel für lange oder komplexe Textblöcke verwenden.
 
 # Funktionen
-- Automatisches Ersetzen von Textkürzeln: Ersetzt benutzerdefinierte Kürzel (z.B. #daily, #todo) automatisch mit den entsprechenden Textbausteinen.
+- Automatisches Ersetzen von Textkürzeln: Ersetzt benutzerdefinierte Kürzel (z.B. §§daily, §§todo) automatisch mit den entsprechenden Textbausteinen.
 - Echtzeitüberwachung der Tastatur: Überwacht die Tastatureingaben und ersetzt Kürzel sofort, nachdem ein Leerzeichen eingegeben wird.
 - Datumseinbindung: Automatische Einbindung des aktuellen Datums bei bestimmten Textvorlagen, wie z.B. täglichen Notizen.
 
@@ -72,14 +72,14 @@ deactivate
 
 1. Anlegen von Textbausteinen:
    - Legen Sie alle Textbausteine in dem Verzeichnis `notes/` ab.
-   - Benennen Sie die Dateien nach dem Muster `triggerword_notes.txt`, z.B. `daily_notes.txt`, `meeting_notes.txt`.
+   - Benennen Sie die Dateien nach dem Muster `triggerword.txt`, z.B. `daily.txt`, `meeting.txt`.
 
 
 2. Textkürzel verwenden:
-Sobald das Programm läuft, kannst du die definierten Kürzel (z.B. #daily) in jedem beliebigen Textfeld eingeben. Nach der Eingabe des Kürzels und Drücken der Leertaste wird das Kürzel automatisch durch den zugehörigen Text ersetzt.
+Sobald das Programm läuft, kannst du die definierten Kürzel (z.B. §§daily) in jedem beliebigen Textfeld eingeben. Nach der Eingabe des Kürzels und Drücken der Leertaste wird das Kürzel automatisch durch den zugehörigen Text ersetzt.
 
 # Beispiel
-Wenn du das Kürzel `#daily` eingibst, wird es durch Folgendes ersetzt (mit dem aktuellen Datum):
+Wenn du das Kürzel `§§daily` eingibst, wird es durch Folgendes ersetzt (mit dem aktuellen Datum):
 
 ````markdown
 # Daily Notes - 05-09-2024
