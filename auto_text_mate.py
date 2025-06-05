@@ -7,6 +7,7 @@ import logging
 import sys
 from typing import Dict, Tuple
 import pathlib
+import re
 
 SHOW_NOTES_TRIGGER = "#show-notes"
 EXIT_TRIGGER = "#exit"
@@ -57,14 +58,64 @@ def load_notes(directory: str) -> Dict[str, str]:
     return notes
 
 def get_template_date() -> Dict[str, str]:
-    """Gets the current date and week number.
+    """Returns today's date and the upcoming week's number.
 
-    Returns:
-        Dict[str, str]: A dictionary containing the current date and week number.
+    This helper keeps backwards compatibility with older notes that rely on
+    ``{date}`` and ``{kw}`` placeholders.
     """
-    date = datetime.datetime.now().strftime("%d-%m-%Y")
-    kw = datetime.datetime.now().isocalendar()[1]
-    return {"date": date, "kw": str(kw)}
+
+    today = datetime.date.today()
+    upcoming_monday = today + datetime.timedelta(days=(0 - today.weekday()) % 7)
+    kw = upcoming_monday.isocalendar()[1]
+    return {"date": today.strftime("%d-%m-%Y"), "kw": str(kw)}
+
+
+def _compute_upcoming_weekday(day_index: int, weeks_offset: int = 0) -> datetime.date:
+    """Returns the next occurrence of the given weekday.
+
+    The returned date is ``today`` if the weekday matches ``today``. ``weeks_offset``
+    shifts the result by whole weeks.
+    """
+
+    today = datetime.date.today()
+    delta = (day_index - today.weekday()) % 7
+    base = today + datetime.timedelta(days=delta)
+    return base + datetime.timedelta(weeks=weeks_offset)
+
+
+def fill_template(template_text: str) -> str:
+    """Replace date placeholders in ``template_text`` with computed values."""
+
+    days = {
+        "monday": 0,
+        "tuesday": 1,
+        "wednesday": 2,
+        "thursday": 3,
+        "friday": 4,
+        "saturday": 5,
+        "sunday": 6,
+    }
+
+    today = datetime.date.today()
+
+    def repl(match: re.Match) -> str:
+        token = match.group(1)
+        base, sep, offset_str = token.partition("+")
+        offset = int(offset_str) if sep else 0
+
+        key = base.lower()
+        if key == "date":
+            return (today + datetime.timedelta(days=offset)).strftime("%d-%m-%Y")
+        if key == "kw":
+            monday = _compute_upcoming_weekday(0, offset)
+            return str(monday.isocalendar()[1])
+        if key in days:
+            day_date = _compute_upcoming_weekday(days[key], offset)
+            return day_date.strftime("%Y-%m-%d")
+
+        return match.group(0)
+
+    return re.sub(r"{([^{}]+)}", repl, template_text)
 
 def setup_replacements() -> Tuple[Dict[str, str], int]:
     """Sets up the replacements dictionary and calculates the maximum trigger length.
@@ -151,8 +202,7 @@ def check_and_replace(typed_chars: str, replacements: Dict[str, str]) -> str:
                 for _ in range(num_backspaces):
                     keyboard.press_and_release('backspace')
 
-                template_data = get_template_date()
-                replacement_text = template_text.format(**template_data)
+                replacement_text = fill_template(template_text)
                 keyboard.write(replacement_text)
                 return ""
 
