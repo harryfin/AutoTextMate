@@ -35,11 +35,11 @@ class TestAutoTextMate(unittest.TestCase):
         self.assertEqual(result, 'note content')
 
     @patch('auto_text_mate.Path.exists', return_value=True)
-    @patch('auto_text_mate.Path.glob', return_value=[Path('test_notes.txt')])
+    @patch('auto_text_mate.Path.glob', return_value=[Path('test.txt')])
     @patch('auto_text_mate.read_file', return_value='note content')
     def test_loads_notes_from_directory(self, mock_read_file, mock_glob, mock_exists):
         result = load_notes('dummy_directory')
-        self.assertEqual(result, {'#test': 'note content'})
+        self.assertEqual(result, {'§§test': 'note content'})
 
     @patch('auto_text_mate.Path.exists', return_value=False)
     def test_returns_empty_dict_if_directory_not_exists(self, mock_exists):
@@ -55,8 +55,8 @@ class TestAutoTextMate(unittest.TestCase):
     @patch('auto_text_mate.keyboard.write')
     @patch('auto_text_mate.fill_template', return_value='note content 01-01-2023 1')
     def test_replaces_trigger_word_with_template_text(self, mock_fill_template, mock_write, mock_press_and_release):
-        replacements = {'#test': 'note content {date} {kw}'}
-        result = check_and_replace('#test', replacements)
+        replacements = {'§§test': 'note content {date} {kw}'}
+        result = check_and_replace('§§test', replacements)
         mock_press_and_release.assert_called_with('backspace')
         mock_write.assert_called_with('note content 01-01-2023 1')
         mock_fill_template.assert_called_once_with('note content {date} {kw}')
@@ -65,9 +65,9 @@ class TestAutoTextMate(unittest.TestCase):
     @patch('auto_text_mate.tk.Tk')
     @patch('auto_text_mate.tk.messagebox.showinfo')
     def test_shows_notes_window_on_show_notes_trigger(self, mock_showinfo, mock_tk):
-        replacements = {'#test': 'note content'}
-        result = check_and_replace('#show-notes', replacements)
-        mock_showinfo.assert_called_once_with("Notes", "#test")
+        replacements = {'§§test': 'note content'}
+        result = check_and_replace('§§show-notes', replacements)
+        mock_showinfo.assert_called_once_with("Notes", "§§test")
         self.assertEqual(result, '')
 
 
