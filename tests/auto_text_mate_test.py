@@ -2,8 +2,21 @@ import logging
 import unittest
 from pathlib import Path
 from unittest.mock import patch, mock_open
+import sys
+import types
 
-from auto_text_mate import read_file, load_notes, get_template_date, check_and_replace
+if 'keyboard' not in sys.modules:
+    stub = types.SimpleNamespace(
+        press_and_release=lambda *a, **k: None,
+        write=lambda *a, **k: None,
+        hook=lambda *a, **k: None,
+        wait=lambda *a, **k: None,
+        unhook_all=lambda *a, **k: None,
+        KeyboardEvent=object,
+    )
+    sys.modules['keyboard'] = stub
+
+from auto_text_mate import read_file, load_notes, get_template_date, check_and_replace, fill_template
 
 
 class TestAutoTextMate(unittest.TestCase):
@@ -40,12 +53,13 @@ class TestAutoTextMate(unittest.TestCase):
 
     @patch('auto_text_mate.keyboard.press_and_release')
     @patch('auto_text_mate.keyboard.write')
-    @patch('auto_text_mate.get_template_date', return_value={'date': '01-01-2023', 'kw': '1'})
-    def test_replaces_trigger_word_with_template_text(self, mock_get_template_date, mock_write, mock_press_and_release):
+    @patch('auto_text_mate.fill_template', return_value='note content 01-01-2023 1')
+    def test_replaces_trigger_word_with_template_text(self, mock_fill_template, mock_write, mock_press_and_release):
         replacements = {'#test': 'note content {date} {kw}'}
         result = check_and_replace('#test', replacements)
         mock_press_and_release.assert_called_with('backspace')
         mock_write.assert_called_with('note content 01-01-2023 1')
+        mock_fill_template.assert_called_once_with('note content {date} {kw}')
         self.assertEqual(result, '')
 
     @patch('auto_text_mate.tk.Tk')
